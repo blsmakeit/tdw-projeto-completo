@@ -8,10 +8,10 @@ describe('Home', () => {
     const { container } = render(<Home />);
     expect(container).toBeInTheDocument();
   });
-  
+
   it('renderiza o texto Welcome', () => {
     render(<Home />);
-    
+
     // Mudaste o texto, então o teste tem de procurar o texto novo
     const text = screen.getByText(/Welcome to my react app/i);
     expect(text).toBeInTheDocument();
