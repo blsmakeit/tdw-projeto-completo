@@ -15,7 +15,7 @@ export default function Home() {
         />
         <ol>
           <li>
-            Get started by editing <code>app/page.js</code>.
+            Wlcome to my react app <code>app/page.js</code>.
           </li>
           <li>Save and see your changes instantly.</li>
           <li> Teste de prettier</li> <li>mais um teste </li>{' '}
