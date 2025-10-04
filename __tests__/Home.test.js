@@ -1,22 +1,31 @@
-/**
- * @jest-environment jsdom
- */
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Home from '../app/page';
+import About from '../app/about/page';
 
 describe('Home', () => {
-  it('renderiza o logo Next.js', () => {
+  it('renderiza sem erros', () => {
+    const { container } = render(<Home />);
+    expect(container).toBeInTheDocument();
+  });
+  
+  it('renderiza o texto Welcome', () => {
     render(<Home />);
-
-    const logo = screen.getByAltText('Next.js logo');
-    expect(logo).toBeInTheDocument();
+    
+    // Mudaste o texto, então o teste tem de procurar o texto novo
+    const text = screen.getByText(/Welcome to my react app/i);
+    expect(text).toBeInTheDocument();
   });
 
-  it('renderiza o texto Get started', () => {
-    render(<Home />);
+  it('corresponde ao snapshot', () => {
+    const { container } = render(<Home />);
+    expect(container).toMatchSnapshot();
+  });
+});
 
-    const text = screen.getByText(/Get started by editing/i);
-    expect(text).toBeInTheDocument();
+describe('About', () => {
+  it('corresponde ao snapshot', () => {
+    const { container } = render(<About />);
+    expect(container).toMatchSnapshot();
   });
 });
